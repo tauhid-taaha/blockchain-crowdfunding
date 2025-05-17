@@ -15,20 +15,59 @@ const faqs = [
       "Blockchain enables secure, transparent, and borderless transactions. It reduces intermediaries, cuts costs, and ensures real-time tracking of funds, building trust among investors and donors.",
   },
   {
-    question: "How can Blockchain enhance trust in fundraising?",
+    question: "How does BlockFunder help crowdfunding campaigns in Bangladesh?",
     answer:
-      "Blockchain provides transparency by allowing donors and investors to track how funds are used. Immutable records ensure that transactions cannot be altered, increasing accountability.",
+      "BlockFunder provides a transparent and decentralized platform for fundraising in Bangladesh. Campaigns are recorded on the blockchain, ensuring donors can track how their contributions are utilized without intermediaries.",
   },
   {
-    question: "Can Blockchain be used for charity fundraising? How?",
+    question: "Can I create a fundraising campaign for a local cause in Bangladesh?",
     answer:
-      "Yes, Blockchain can be used for charity fundraising by providing transparency in donations, reducing transaction costs, and enabling global contributions. Smart contracts can automate fund allocation and ensure that funds reach the intended beneficiaries.",
+      "Yes! BlockFunder allows users to create fundraising campaigns for local projects like education, healthcare, disaster relief, and small businesses, ensuring direct donor engagement with transparent fund allocation.",
   },
   {
-    question:
-      "What are Initial Coin Offerings (ICOs), and how are they used for fundraising?",
+    question: "How do I donate to a campaign on BlockFunder?",
     answer:
-      "ICOs are blockchain-based crowdfunding methods where startups or projects issue tokens to investors in exchange for cryptocurrency or fiat money. These tokens can represent ownership, utility, or future profits.",
+      "You can donate using your Metamask wallet with cryptocurrency such as Ether. Every transaction is recorded on the blockchain, ensuring transparency and security for both donors and campaign creators.",
+  },
+  {
+    question: "Are there any fees for starting a crowdfunding campaign on BlockFunder?",
+    answer:
+      "BlockFunder charges a minimal service fee to maintain the network. However, due to blockchain-based automation, our fees are significantly lower than traditional crowdfunding platforms.",
+  },
+  {
+    question: "How does BlockFunder prevent fraud in fundraising campaigns?",
+    answer:
+      "All transactions are recorded on the blockchain, ensuring transparency. Smart contracts enforce fund usage restrictions, and verified campaigns receive additional security checks to prevent fraudulent activities.",
+  },
+  {
+    question: "Can international donors contribute to Bangladesh-based projects?",
+    answer:
+      "Yes! BlockFunder supports global donations, allowing donors from anywhere in the world to support projects in Bangladesh without excessive banking fees or intermediaries.",
+  },
+  {
+    question: "What types of projects are supported on BlockFunder?",
+    answer:
+      "BlockFunder supports projects related to education, healthcare, community development, disaster relief, small businesses, and technology innovation in Bangladesh.",
+  },
+  {
+    question: "How long does it take to withdraw funds from a campaign?",
+    answer:
+      "Once a campaign reaches its goal or a withdrawal request is made, funds are released based on the smart contract conditions. This ensures secure and structured fund distribution.",
+  },
+  {
+    question: "What is the minimum and maximum amount I can donate?",
+    answer:
+      "BlockFunder allows micro-donations starting from as low as 0.001 ETH to encourage community participation. There is no strict maximum limit, but large transactions may require verification.",
+  },
+  {
+    question: "Can I receive a tax benefit for donating through BlockFunder in Bangladesh?",
+    answer:
+      "Currently, tax benefits depend on Bangladesh's financial regulations. BlockFunder is working to integrate government-approved donation tracking for potential tax benefits.",
+  },
+  {
+    question: "How does BlockFunder ensure donations reach the intended cause?",
+    answer:
+      "Smart contracts automate fund allocation, preventing unauthorized withdrawals. Project milestones can be set to release funds in stages based on campaign progress.",
   },
 ];
 

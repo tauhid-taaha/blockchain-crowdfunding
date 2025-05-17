@@ -237,7 +237,7 @@ const Homepage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">$10M+</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">$10k+</div>
               <div className="text-gray-400 text-lg">Total Funds Raised</div>
             </motion.div>
             <motion.div 
@@ -245,7 +245,7 @@ const Homepage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">500+</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">100+</div>
               <div className="text-gray-400 text-lg">Active Campaigns</div>
             </motion.div>
             <motion.div 
@@ -253,7 +253,7 @@ const Homepage = () => {
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">50K+</div>
+              <div className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#00A86B] to-[#4acd8d] mb-4">15K+</div>
               <div className="text-gray-400 text-lg">Community Members</div>
             </motion.div>
             <motion.div 

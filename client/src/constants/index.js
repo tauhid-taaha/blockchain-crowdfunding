@@ -8,6 +8,7 @@ import {
   AccountCircle,
   Analytics, // For Dashboard
   VolunteerActivism, // For Donated Campaign
+  CurrencyBitcoin, // For Crypto Dashboard News
 } from "@mui/icons-material"; // ✅ Using Material UI Icons
 
 export const navlinks = [
@@ -50,5 +51,10 @@ export const navlinks = [
     name: "Dashboard",
     imgUrl: "Analytics",
     link: "/dashboard",
+  },
+  {
+    name: "Crypto Dashboard News",
+    imgUrl: "CurrencyBitcoin",
+    link: "/crypto-dashboard",
   },
 ];
