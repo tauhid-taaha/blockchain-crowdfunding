@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
 import { useTheme } from "./context/ThemeContext";
-
+import AdminRoute from "./components/AdminRoute";
 import { Sidebar, Navbar } from "./components";
 import WelcomePopup from "./components/WelcomePopup";
 import {
@@ -28,7 +28,10 @@ import {
   BlogDetail,
   CreateBlog,
   CryptoDashboard,
-  UserBkashRequests
+  UserBkashRequests,
+  AdminBkashRequests,
+  AdminDashboard,
+  AdminLayout
 } from "./pages";
 
 const App = () => {
@@ -75,7 +78,7 @@ const App = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex-1 max-sm:w-full max-w-[1600px] mx-auto sm:pr-5">
+      <div className="flex-1 max-sm:w-full max-w-[1850px] mx-auto sm:pr-5">
         
         <Navbar />
 
@@ -101,6 +104,12 @@ const App = () => {
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/my-bkash-requests" element={<UserBkashRequests />} />
+ 
+          <Route path="/admin-dashboard" element={<AdminRoute><AdminDashboard /></AdminRoute>} />
+
+           <Route path="/admin-bkash-requests" element={ <AdminRoute>
+                                                            <AdminBkashRequests />
+                                                                     </AdminRoute>} />
           <Route 
             path="/create-blog" 
             element={

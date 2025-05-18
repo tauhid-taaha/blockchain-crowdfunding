@@ -81,27 +81,37 @@ const Navbar = () => {
         </button>
 
         {/* Show Login/Register or Logout based on auth state */}
-        {isAuthenticated ? (
-          <button
-            onClick={handleLogout}
-            className="bg-[#ff4d4d] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium"
-          >
-            Log Out
-          </button>
-        ) : (
-          <>
-            <Link to="/login">
-              <button className="bg-[#6a5acd] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium">
-                Log In
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="bg-[#4acd8d] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium">
-                Register
-              </button>
-            </Link>
-          </>
-        )}
+     {/* Show Login/Register or Logout based on auth state */}
+{isAuthenticated ? (
+  <>
+    {user?.role === 1 && (
+      <Link to="/admin-dashboard">
+        <button className="bg-[#f39c12] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium hover:bg-yellow-500 transition-all duration-200">
+          Admin Options
+        </button>
+      </Link>
+    )}
+    <button
+      onClick={handleLogout}
+      className="bg-[#ff4d4d] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium"
+    >
+      Log Out
+    </button>
+  </>
+) : (
+  <>
+    <Link to="/login">
+      <button className="bg-[#6a5acd] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium">
+        Log In
+      </button>
+    </Link>
+    <Link to="/register">
+      <button className="bg-[#4acd8d] text-white px-4 py-2 rounded-[10px] font-epilogue font-medium">
+        Register
+      </button>
+    </Link>
+  </>
+)}
 
         <Link to="/profile">
           <div className={`w-[52px] h-[52px] rounded-full ${isDarkMode ? 'bg-[#2c2f32]' : 'bg-gray-200'} flex justify-center items-center cursor-pointer`}>
@@ -166,8 +176,10 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-
+             {/* ✅ Admin-only Nav Button */}
+        
           <div className="flex mx-4 gap-4">
+            
             <button
               onClick={() =>
                 address ? navigate("create-campaign") : connect()
@@ -198,6 +210,7 @@ const Navbar = () => {
                     Register
                   </button>
                 </Link>
+                
               </>
             )}
           </div>

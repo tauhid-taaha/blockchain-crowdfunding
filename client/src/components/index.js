@@ -18,3 +18,4 @@ export { default as CampaignFilters } from './CampaignFilters';
 export { default as TopDonors } from './TopDonors';
 export { default as RecentProjects } from './RecentProjects';
 export { default as CampaignStats } from './CampaignStats';
+export { default as AdminRoute } from './AdminRoute';

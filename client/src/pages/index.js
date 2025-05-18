@@ -1,5 +1,6 @@
 export { default as Home } from "./Home";
 import UserBkashRequests from './UserBkashRequests';
+import AdminDashboard from './AdminDashboard';
 export { default as Profile } from "./profile";
 export { default as CreateCampaign } from "./CreateCampaign";
 export { default as CampaignDetails } from "./CampaignDetails";
@@ -21,3 +22,6 @@ export { default as BlogDetail } from './BlogDetail';
 export { default as CreateBlog } from './CreateBlog';
 export { default as CryptoDashboard } from './CryptoDashboard';
 export { default as UserBkashRequests} from './UserBkashRequests';
+export { default as AdminBkashRequests} from './AdminBkashRequests';
+export { default as AdminDashboard} from './AdminDashboard';
+export { default as AdminLayout} from './AdminLayout';
