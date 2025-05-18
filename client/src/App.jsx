@@ -6,6 +6,7 @@ import { useTheme } from "./context/ThemeContext";
 import { Sidebar, Navbar } from "./components";
 import WelcomePopup from "./components/WelcomePopup";
 import {
+
   CampaignDetails,
   CreateCampaign,
   Home,
@@ -26,7 +27,8 @@ import {
   BlogList,
   BlogDetail,
   CreateBlog,
-  CryptoDashboard
+  CryptoDashboard,
+  UserBkashRequests
 } from "./pages";
 
 const App = () => {
@@ -74,6 +76,7 @@ const App = () => {
 
       {/* Main Content */}
       <div className="flex-1 max-sm:w-full max-w-[1600px] mx-auto sm:pr-5">
+        
         <Navbar />
 
         <Routes>
@@ -97,6 +100,7 @@ const App = () => {
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
+          <Route path="/my-bkash-requests" element={<UserBkashRequests />} />
           <Route 
             path="/create-blog" 
             element={

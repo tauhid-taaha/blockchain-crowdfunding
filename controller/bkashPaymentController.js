@@ -2,8 +2,8 @@ import BkashRequest from '../models/bkashPaymentModel.js';
 
 export const createBkashRequest = async (req, res) => {
   try {
-    const { username, campaignId, bkashTxnNumber } = req.body;
-    const request = new BkashRequest({ username, campaignId, bkashTxnNumber });
+    const { username, campaignId, bkashTxnNumber,confirmedamount } = req.body;
+    const request = new BkashRequest({ username, campaignId, bkashTxnNumber ,confirmedamount});
     await request.save();
     res.status(201).json({ success: true, request });
   } catch (err) {
@@ -38,6 +38,21 @@ export const updateBkashRequest = async (req, res) => {
 
     await request.save();
     res.status(200).json({ success: true, message: 'Request updated', request });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Server Error', error: err.message });
+  }
+};
+export const getBkashRequestsByUsername = async (req, res) => {
+  try {
+    const { username } = req.params;
+
+    const requests = await BkashRequest.find({ username }).sort({ updatedAt: -1 });
+
+    if (requests.length === 0) {
+      return res.status(404).json({ success: false, message: 'No requests found for this user' });
+    }
+
+    res.status(200).json({ success: true, requests });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Server Error', error: err.message });
   }

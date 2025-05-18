@@ -11,9 +11,10 @@ const BkashRequestSchema = new mongoose.Schema({
     enum: ['pending', 'verified', 'declined'],
     default: 'pending'
   },
-  etherscanTxnId: { type: String },          // only when verified
-  adminWalletAddress: { type: String },      // wallet used to send fund
-  adminNote: { type: String },               // optional note per request
+  etherscanTxnId: { type: String,default: 'Waiting for Approval' },          // only when verified
+  adminWalletAddress: { type: String,default: 'Verifying' },      // wallet used to send fund
+  adminNote: { type: String ,default: 'Verifying'},  
+  confirmedamount: { type: String },             // optional note per request
   updatedAt: { type: Date, default: Date.now }
 });
 

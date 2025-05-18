@@ -28,7 +28,7 @@ const PopupModal = ({ visible, onClose, details }) => {
         <p className="mb-2 text-gray-700 dark:text-gray-300"><strong>Username:</strong> {details.username}</p>
         <p className="mb-2 text-gray-700 dark:text-gray-300"><strong>Campaign ID:</strong> {details.campaignId}</p>
         <p className="mb-2 text-gray-700 dark:text-gray-300"><strong>Bkash Transaction Number:</strong> {details.bkashTxnNumber}</p>
-        <p className="mb-2 text-gray-700 dark:text-gray-300"><strong>Amount (BDT):</strong> {details.amount}</p>
+        <p className="mb-2 text-gray-700 dark:text-gray-300"><strong>Amount (BDT):</strong> {details.confirmedamount}</p>
         <button
           onClick={onClose}
           className="mt-4 w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded"
@@ -88,6 +88,7 @@ const handleBkashPay = async () => {
       username: user.name,
       campaignId: state.pId,
       bkashTxnNumber: bkashTxn,
+      confirmedamount: bkashAmount
     });
     if (res.data.success) {
       // Only now show modal with fresh details
@@ -95,7 +96,7 @@ const handleBkashPay = async () => {
         username: user.name,
         campaignId: state.pId,
         bkashTxnNumber: bkashTxn,
-        amount: bkashAmount,
+        confirmedamount: bkashAmount,
       });
       setModalVisible(true); // Show modal after success
 
