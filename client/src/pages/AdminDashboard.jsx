@@ -39,10 +39,10 @@ const AdminDashboard = () => {
       bg: `linear-gradient(135deg, #43cea2, #185a9d)`,
     },
     {
-      title: "Analytics & Stats",
+      title: "Campaign Validation",
       description: "Visualize traffic, donations, and engagement data.",
       icon: <FaChartBar size={28} />,
-      onClick: () => alert("Coming soon..."),
+      onClick: () => navigate("/valid"),
       bg: `linear-gradient(135deg, #11998e, #38ef7d)`,
     },
     {

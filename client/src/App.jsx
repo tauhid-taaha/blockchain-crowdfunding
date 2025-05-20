@@ -31,8 +31,11 @@ import {
   UserBkashRequests,
   AdminBkashRequests,
   AdminDashboard,
-  AdminLayout
+  AdminLayout,
+  AdminValidation,
+  
 } from "./pages";
+
 
 const App = () => {
   const { user, loading, error } = useAuth();
@@ -102,6 +105,7 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/blogs" element={<BlogList />} />
+            <Route path="/valid" element={<AdminValidation />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/my-bkash-requests" element={<UserBkashRequests />} />
  
