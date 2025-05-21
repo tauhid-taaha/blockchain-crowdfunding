@@ -33,6 +33,7 @@ import {
   AdminDashboard,
   AdminLayout,
   AdminValidation,
+  VerifyCampaign,
   
 } from "./pages";
 
@@ -105,6 +106,7 @@ const App = () => {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route path="/blogs" element={<BlogList />} />
+          <Route path="/verify" element={<VerifyCampaign />} />
             <Route path="/valid" element={<AdminValidation />} />
           <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="/my-bkash-requests" element={<UserBkashRequests />} />

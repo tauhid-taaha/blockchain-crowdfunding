@@ -40,6 +40,7 @@ const PopupModal = ({ visible, onClose, details }) => {
   );
 };
 const CampaignDetails = () => {
+  const [verificationStatus, setVerificationStatus] = useState('loading');
   const { user } = useAuth();
   const [modalVisible, setModalVisible] = useState(false);
 const [modalDetails, setModalDetails] = useState({});
@@ -60,6 +61,29 @@ const [title, setTitle] = useState("");
 const [message, setMessage] = useState("");
 const [messageType, setMessageType] = useState("");
   const remainingDays = daysLeft(state.deadline);
+
+useEffect(() => {
+  const checkCampaignVerification = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5173/api/v1/campaigns/campaign/${state.pId}`);
+      const campaign = response.data.data; // backend sends { success: true, data: campaign }
+
+      if (campaign && campaign.verificationStatus === 'verified') {
+        setVerificationStatus('verified');
+      } else {
+        setVerificationStatus('unverified');
+      }
+    } catch (error) {
+      console.error("Error checking campaign verification:", error);
+      setVerificationStatus('unverified');
+    }
+  };
+
+  if(state.pId) {
+    checkCampaignVerification();
+  }
+}, [state.pId]);
+
 
   const fetchDonators = async () => {
     const data = await getDonations(state.pId);
@@ -145,6 +169,24 @@ const closeModal = () => {
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <h1 className={`text-5xl font-bold mb-4 text-white`}>
                 {state.title}
+                            {verificationStatus !== 'loading' && (
+  <div className="mt-4 mb-2 inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-semibold w-fit
+                  bg-gray-800 text-white border border-gray-600 shadow-sm">
+    {verificationStatus === 'verified' ? (
+      <span className="text-green-400">✔ Verified Campaign</span>
+    ) : (
+      <span
+        onClick={() => navigate('/verify', { state: { campaignId: state.pId } })}
+        className="text-red-400 underline cursor-pointer"
+        title="Click to request verification"
+      >
+        ❌ Unverified Campaign: {state.pId}
+      </span>
+    )}
+  </div>
+)}
+
+
               </h1>
               <div className="flex items-center gap-6">
                 <div className="flex items-center gap-2">
