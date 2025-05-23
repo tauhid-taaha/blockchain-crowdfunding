@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import video1 from "../assets/video1.mp4";
 import video2 from "../assets/video2.mp4";
+import { ReliefCards } from "../components";
+
 
 const Homepage = () => {
   const containerRef = useRef(null);
@@ -74,9 +76,10 @@ const Homepage = () => {
             transition={{ duration: 1.2, type: "spring", stiffness: 100 }}
             className="mb-6 relative"
           >
-            <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00A86B]">
-              Block Funder
-            </h1>
+           <h1 className="text-5xl sm:text-7xl lg:text-8xl leading-[1.3] pt-8 font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-[#00A86B]">
+                Ashroy-E (আশ্রয়ী)
+                </h1>
+            
           </motion.div>
           
           <motion.p 
@@ -85,7 +88,9 @@ const Homepage = () => {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl sm:text-2xl lg:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white mb-8"
           >
-            Revolutionizing Crowdfunding with Blockchain Technology
+          Empowering Transparent Relief Through Blockchainn
+
+
           </motion.p>
 
           <motion.p 
@@ -94,19 +99,25 @@ const Homepage = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="text-lg text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            Experience the future of fundraising with transparent, secure, and decentralized campaigns. 
-            Powered by Ethereum blockchain technology.
+          Ashroy-E (আশ্রয়ী) is a blockchain-based platform for emergency fundraising during floods, cyclones, and humanitarian crises in Bangladesh. It ensures transparency, global access, and instant support.
+          
+          
           </motion.p>
-
+            <div className="mt-16 px-4">
+  <h2 className="text-2xl font-bold mb-6 text-center text-[#008F5B]">
+    Relief in Action
+  </h2>
+  <ReliefCards />
+</div>
           {/* Call to Action Buttons */}
-          <motion.div 
+          {/* <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
             className="flex flex-col items-center"
-          >
+          > */}
             {/* Crypto Resources */}
-            <div className="w-full max-w-3xl">
+            {/* <div className="w-full max-w-3xl">
               <motion.h3 
                 whileHover={{ scale: 1.05 }}
                 className="text-xl font-semibold text-[#00A86B] mb-6 text-center bg-white/5 py-3 rounded-lg backdrop-blur-sm border border-white/10 shadow-lg"
@@ -137,12 +148,13 @@ const Homepage = () => {
                   <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Link>
               </div>
-            </div>
-          </motion.div>
+            </div> */}
+
+          {/* </motion.div> */}
         </motion.div>
 
         {/* Video Section */}
-        <motion.div 
+        {/* <motion.div 
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
@@ -169,7 +181,7 @@ const Homepage = () => {
             whileHover={{ scale: 1.02 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#00A86B] to-[#008F5B] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#00A8S6B] to-[#008F5B] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200"></div>
             <video
               autoPlay
               loop
@@ -180,9 +192,9 @@ const Homepage = () => {
               Your browser does not support the video tag.
             </video>
           </motion.div>
-        </motion.div>
+        </motion.div> */}
       </div>
-
+          
       {/* Features Section */}
       <motion.div 
         initial={{ opacity: 0, y: 40 }}

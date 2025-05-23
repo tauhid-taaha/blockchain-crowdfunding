@@ -1,0 +1,43 @@
+.cards-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  padding: 20px 0;
+}
+
+.slider-track {
+  display: flex;
+  animation: scroll-slider 20s linear infinite;
+}
+
+@keyframes scroll-slider {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.cards {
+  flex: 0 0 20%; /* 5 cards at a time (100% / 5 = 20%) */
+  margin: 0 10px;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.cards__img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.cards__overlay {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
