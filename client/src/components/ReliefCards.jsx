@@ -30,7 +30,7 @@ const ReliefCards = () => {
         }
         return nextIndex;
       });
-    }, 700); // faster sliding every 1.5 sec
+    }, 1200); // faster sliding every 1.5 sec
 
     return () => clearInterval(interval);
   }, []);
@@ -38,19 +38,23 @@ const ReliefCards = () => {
   return (
     <div className="bg-gray-900 py-12">
       <div
-        ref={scrollRef}
-        className="flex space-x-6 overflow-x-hidden px-6 cursor-grab select-none"
-        style={{ scrollBehavior: "smooth" }}
+                 ref={scrollRef}
+  className="flex space-x-6 overflow-x-scroll px-6 cursor-grab select-none scrollbar-hide"
+  style={{
+    scrollBehavior: "smooth",
+    scrollbarWidth: "none",          // For Firefox
+    msOverflowStyle: "none",         // For IE/Edge
+  }}
       >
         {images.map((src, idx) => {
           const isActive = idx === currentIndex;
           return (
             <div
-              key={idx}
-              className={`flex-shrink-0 w-60 h-96 rounded-xl overflow-hidden
-              transition-transform duration-500
-              ${isActive ? "scale-105 shadow-2xl" : "scale-95 opacity-80"}
-              `}
+                key={idx}
+  className={`flex-shrink-0 w-60 h-96 rounded-xl overflow-hidden
+    transform transition-transform duration-700 ease-in-out
+    ${isActive ? "scale-105 shadow-2xl" : "scale-95 opacity-80"}
+  `}
             >
               <img
                 src={src}

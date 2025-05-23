@@ -157,9 +157,9 @@ const closeModal = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative mb-12"
+          className="relative mb-6"
         >
-          <div className="relative h-[400px] rounded-2xl overflow-hidden">
+          <div className="relative h-[450px] rounded-2xl overflow-hidden">
             <img 
               src={state.image} 
               alt="campaign" 
@@ -168,7 +168,7 @@ const closeModal = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
               <h1 className={`text-5xl font-bold mb-4 text-white`}>
-                {state.title}
+                
                             {verificationStatus !== 'loading' && (
   <div className="mt-4 mb-2 inline-flex items-center gap-2 px-4 py-1 rounded-full text-sm font-semibold w-fit
                   bg-gray-800 text-white border border-gray-600 shadow-sm">
@@ -204,7 +204,11 @@ const closeModal = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </motion.div><div className="mt-6 px-2 sm:px-4">
+  <h1 className="text-4xl sm:text-5xl font-extrabold text-white mb-4 leading-tight tracking-tight drop-shadow-md bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-500 bg-clip-text text-transparent">
+    {state.title}
+  </h1>
+</div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left content */}

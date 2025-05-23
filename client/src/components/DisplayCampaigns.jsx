@@ -14,7 +14,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
 
   return (
     <div>
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex justify-between items-center mb-5 ml-">
         <h2 className={`font-bold text-xl ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>
           {title} 
           <span className={`ml-2 text-sm font-medium py-1 px-2 rounded-full ${isDarkMode ? 'bg-gray-700 text-gray-300' : 'bg-gray-200 text-gray-700'}`}>
@@ -23,7 +23,7 @@ const DisplayCampaigns = ({ title, isLoading, campaigns }) => {
         </h2>
       </div>
 
-      <div className="flex flex-wrap mt-[20px] gap-[26px]">
+      <div className="flex flex-wrap mt-[20px] gap-[26px] ml-7">
         {isLoading && (
           <div className="w-full flex justify-center items-center py-10">
             <img src={loader} alt="loader" className="w-[100px] h-[100px] object-contain" />
