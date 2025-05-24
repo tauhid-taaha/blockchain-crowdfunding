@@ -52,6 +52,8 @@ const [showModal, setShowModal] = useState(false);
 const [txn, setTxn] = useState("");
 const [amt, setAmt] = useState("");
 const [title, setTitle] = useState("");
+const [totalEthCollected, setTotalEthCollected] = useState(0);
+
   const [isLoading, setIsLoading] = useState(false);
   const [amount, setAmount] = useState('');
   const [donators, setDonators] = useState([]);
@@ -63,6 +65,7 @@ const [messageType, setMessageType] = useState("");
   const remainingDays = daysLeft(state.deadline);
 
 useEffect(() => {
+  
   const checkCampaignVerification = async () => {
     try {
       const response = await axios.get(`http://localhost:5173/api/v1/campaigns/campaign/${state.pId}`);
@@ -86,8 +89,11 @@ useEffect(() => {
 
 
   const fetchDonators = async () => {
-    const data = await getDonations(state.pId);
-    setDonators(data);
+     const data = await getDonations(state.pId);
+  setDonators(data);
+
+  const total = data.reduce((sum, item) => sum + parseFloat(item.donation), 0);
+  setTotalEthCollected(total);
   }
 
   useEffect(() => {
@@ -199,7 +205,7 @@ const closeModal = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <FaEthereum className="text-white/80" />
-                  <span className="text-white/80">{state.amountCollected} ETH raised</span>
+                  <span className="text-white/80"> {totalEthCollected} ETH raised</span>
                 </div>
               </div>
             </div>
@@ -220,10 +226,10 @@ const closeModal = () => {
               className={`p-6 rounded-xl ${isDarkMode ? 'bg-[#1c1c24]' : 'bg-white'} shadow-lg`}
             >
               <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Campaign Progress</h2>
-              <ProgressBar current={parseFloat(state.amountCollected)} target={parseFloat(state.target)} />
+              <ProgressBar current={parseFloat(totalEthCollected)} target={parseFloat(state.target)} />
               <div className="mt-4 flex justify-between text-sm">
                 <span className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
-                  {state.amountCollected} ETH raised
+                  {totalEthCollected} ETH raised
                 </span>
                 <span className={isDarkMode ? 'text-gray-400' : 'text-gray-600'}>
                   Goal: {state.target} ETH
@@ -320,7 +326,7 @@ const closeModal = () => {
               className={`p-6 rounded-xl ${isDarkMode ? 'bg-[#1c1c24]' : 'bg-white'} shadow-lg`}
             >
               <h2 className={`text-2xl font-bold mb-6 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Donate to Campaign</h2>
-              <div className="space-y-4">
+              <div className="space-y-4 text-black">
                 <input
                   type="number"
                   placeholder="Amount in ETH"
