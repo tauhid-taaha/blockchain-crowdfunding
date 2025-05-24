@@ -4,13 +4,19 @@ import { tagType, thirdweb } from '../assets';
 import { daysLeft } from '../utils';
 import { ProgressBar, BookmarkButton } from './index';
 import { motion } from 'framer-motion';
+import { useStateContext } from '../context';
 
 const FundCard = ({ owner, title, description, target, deadline, amountCollected, image, handleClick, pId }) => {
   const remainingDays = daysLeft(deadline);
   const { isDarkMode } = useTheme();
   const [isLiked, setIsLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(0);
-  
+  const [collectedAmount, setCollectedAmount] = useState(0);
+const { getDonations } = useStateContext();
+
+
+
+
   useEffect(() => {
     const likedCampaigns = JSON.parse(localStorage.getItem('likedCampaigns') || '{}');
     if (likedCampaigns[pId]) {
@@ -21,6 +27,19 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
       setLikeCount(randomLikes);
     }
   }, [pId]);
+  useEffect(() => {
+  const fetchCollectedAmount = async () => {
+    try {
+      const donations = await getDonations(pId);
+      const total = donations.reduce((sum, item) => sum + parseFloat(item.donation), 0);
+      setCollectedAmount(total);
+    } catch (error) {
+      console.error("Error fetching donations:", error);
+    }
+  };
+
+  fetchCollectedAmount();
+}, [pId]);
   
   const handleLike = (e) => {
     e.stopPropagation();
@@ -40,7 +59,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
     localStorage.setItem('likedCampaigns', JSON.stringify(likedCampaigns));
   };
   
-  const percentRaised = (parseFloat(amountCollected) / parseFloat(target)) * 100;
+  const percentRaised = (parseFloat({collectedAmount}) / parseFloat(target)) * 100;
   
   return (
     <motion.div
@@ -101,15 +120,10 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
           <p className={`mt-[5px] font-epilogue font-normal ${isDarkMode ? 'text-[#808191]' : 'text-gray-600'} text-left leading-[18px] truncate`}>{description}</p>
         </div>
 
-        {/* Progress Bar */}
-        <div className="w-full h-2 bg-gray-200/20 rounded-full overflow-hidden mb-3">
-          <motion.div 
-            className="h-full bg-gradient-to-r from-[#00A86B] to-[#008F5B]"
-            initial={{ width: 0 }}
-            animate={{ width: `${Math.min(percentRaised, 100)}%` }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          ></motion.div>
-        </div>
+        <ProgressBar
+  current={parseFloat(collectedAmount)}
+  target={parseFloat(target)}
+/>
 
         {/* Campaign Stats */}
         <div className="flex justify-between flex-wrap gap-2 mb-4">
@@ -130,7 +144,7 @@ const FundCard = ({ owner, title, description, target, deadline, amountCollected
               <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
             </svg>
             <div className="flex flex-col">
-              <h4 className={`font-epilogue font-semibold text-[14px] ${isDarkMode ? 'text-[#b2b3bd]' : 'text-gray-700'} leading-[22px]`}>{amountCollected}</h4>
+              <h4 className={`font-epilogue font-semibold text-[14px] ${isDarkMode ? 'text-[#b2b3bd]' : 'text-gray-700'} leading-[22px]`}>{collectedAmount}</h4>
               <p className={`mt-[3px] font-epilogue font-normal text-[12px] leading-[18px] ${isDarkMode ? 'text-[#808191]' : 'text-gray-500'} sm:max-w-[120px] truncate`}>Raised of {target}</p>
             </div>
           </div>
