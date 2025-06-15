@@ -18,7 +18,7 @@ const CryptoNews = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:8080/api/v1/auth/crypto-news');
+      const response = await axios.get('https://blockchain-crowdfunding-4wah.onrender.com/api/v1/auth/crypto-news');
       if (response.data.success) {
         setNewsData(response.data.data);
       } else {
