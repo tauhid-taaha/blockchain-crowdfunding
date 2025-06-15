@@ -60,7 +60,7 @@ const VerifyCampaign = () => {
       publicPhotos.forEach((file) => formData.append("publicPhotos", file));
       privatePhotos.forEach((file) => formData.append("privatePhotos", file));
 
-      const res = await axios.post("http://localhost:5173/api/v1/campaigns/campaign", formData, {
+      const res = await axios.post("https://blockchain-crowdfunding-4wah.onrender.com/api/v1/campaigns/campaign", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
