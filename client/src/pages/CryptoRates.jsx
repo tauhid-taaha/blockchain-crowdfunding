@@ -18,7 +18,7 @@ const CryptoRates = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await axios.get('http://localhost:8080/api/v1/auth/crypto-rates');
+      const response = await axios.get('https://blockchain-crowdfunding-4wah.onrender.com/api/v1/auth/crypto-rates');
       if (response.data.success) {
         setCryptoData(response.data.data);
       } else {
