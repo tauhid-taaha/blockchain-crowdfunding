@@ -19,7 +19,7 @@ const __dirname = path.resolve();
 
 // CORS configuration
 app.use(cors({
-  origin: 'http://localhost:5173',  // Vite frontend URL
+  origin: 'https://ashoye.vercel.app',  // Vite frontend URL
   credentials: true
 }));
 
