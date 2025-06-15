@@ -41,7 +41,7 @@ export default function AdminValidation() {
 
   useEffect(() => {
     axios
-      .get('http://localhost:5173/api/v1/campaigns/campaigns')
+      .get('https://blockchain-crowdfunding-4wah.onrender.com/api/v1/campaigns/campaigns')
       .then(res => setCampaignRecords(res.data.data))
       .catch(err => console.error(err));
   }, []);
@@ -50,14 +50,14 @@ export default function AdminValidation() {
     if (!selectedRecord) return;
     try {
       await axios.patch(
-        `http://localhost:5173/api/v1/campaigns/campaign/${selectedRecord.campaignId}/verification`,
+        `https://blockchain-crowdfunding-4wah.onrender.com/api/v1/campaigns/campaign/${selectedRecord.campaignId}/verification`,
         { verificationStatus: status, comment }
       );
       alert('Status updated!');
       setSelectedRecord(null);
       setStatus('');
       setComment('');
-      const res = await axios.get('http://localhost:5173/api/v1/campaigns/campaigns');
+      const res = await axios.get('https://blockchain-crowdfunding-4wah.onrender.com/api/v1/campaigns/campaigns');
       setCampaignRecords(res.data.data);
     } catch {
       alert('Failed to update');
