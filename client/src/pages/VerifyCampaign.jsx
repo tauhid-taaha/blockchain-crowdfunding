@@ -105,9 +105,9 @@ const VerifyCampaign = () => {
         variant="h4"
         fontWeight="900"
         mb={3}
-        color="#ff00a6"
+        color="white"
         textAlign="center"
-        sx={{ textShadow: "0 0 12px #ff00a6" }}
+        sx={{ textShadow: "0 0 12pxrgb(255, 255, 255)" }}
       >
         Verify Your Campaign
       </Typography>
@@ -164,7 +164,7 @@ const VerifyCampaign = () => {
             htmlFor="public-photos"
             sx={{ color: "#00fff7", fontWeight: "bold" }}
           >
-            Public Photos (required)
+            NID/Passport Photos (required)
           </InputLabel>
           <Button
             variant="contained"
@@ -177,7 +177,7 @@ const VerifyCampaign = () => {
               fontWeight: "bold",
             }}
           >
-            Upload Public Photos
+            Upload NID Photo
             <input
               hidden
               id="public-photos"
@@ -199,7 +199,7 @@ const VerifyCampaign = () => {
             htmlFor="private-photos"
             sx={{ color: "#00fff7", fontWeight: "bold" }}
           >
-            Private Photos (optional)
+            Documentation Proofs (optional)
           </InputLabel>
           <Button
             variant="contained"
@@ -212,7 +212,7 @@ const VerifyCampaign = () => {
               fontWeight: "bold",
             }}
           >
-            Upload Private Photos
+            Upload  Photos
             <input
               hidden
               id="private-photos"

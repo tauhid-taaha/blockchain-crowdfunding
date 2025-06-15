@@ -102,10 +102,7 @@ const { getDonations } = useStateContext();
         <BookmarkButton campaignId={pId} title={title} image={image} />
       </div>
       
-      {/* Like Count */}
-      <div className="absolute top-2 left-2 z-10 bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full">
-        <span className="text-xs text-white">{likeCount}</span>
-      </div>
+      
       
       {/* Campaign Image */}
       <div className="relative h-[158px] overflow-hidden">

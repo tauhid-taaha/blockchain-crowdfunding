@@ -57,4 +57,9 @@ export const navlinks = [
     imgUrl: "CurrencyBitcoin",
     link: "/crypto-dashboard",
   },
+   {
+    name: "User Bkash Request",
+    imgUrl: "Article",
+    link: "/my-bkash-requests",
+  }
 ];

@@ -1,4 +1,4 @@
-import bcrypt from "bcrypt";
+import bcrypt from "@node-rs/bcrypt";
 
 export const hashPassword = async (password) => {
   try {
