@@ -19,7 +19,7 @@ const CryptoDashboard = () => {
   const fetchNews = async () => {
     try {
       setLoadingNews(true);
-      const response = await axios.get("http://localhost:8080/api/v1/auth/crypto-news");
+      const response = await axios.get("https://blockchain-crowdfunding-4wah.onrender.com/api/v1/auth/crypto-news");
       if (response.data.success) setNewsData(response.data.data);
       else setError("Failed to fetch news");
     } catch (err) {
@@ -32,7 +32,7 @@ const CryptoDashboard = () => {
   const fetchCryptoRates = async () => {
     try {
       setLoadingCrypto(true);
-      const response = await axios.get("http://localhost:8080/api/v1/auth/crypto-rates");
+      const response = await axios.get("https://blockchain-crowdfunding-4wah.onrender.com/api/v1/auth/crypto-rates");
       if (response.data.success) setCryptoData(response.data.data);
       else setError("Failed to fetch crypto rates");
     } catch (err) {
