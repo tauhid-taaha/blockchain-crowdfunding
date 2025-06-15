@@ -35,7 +35,7 @@ export const AuthProvider = ({ children }) => {
     setAuthLoading(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/login', {
+      const response = await axios.post('https://blockchain-crowdfunding-4wah.onrender.com//api/v1/auth/login', {
         email,
         password
       });
@@ -61,7 +61,7 @@ export const AuthProvider = ({ children }) => {
     setAuthLoading(true);
     setError(null);
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/auth/register', {
+      const response = await axios.post('https://blockchain-crowdfunding-4wah.onrender.com//api/v1/auth/register', {
         name,
         email,
         password,
