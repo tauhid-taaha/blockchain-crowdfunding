@@ -19,7 +19,7 @@ const UserBkashRequests = () => {
     const fetchRequests = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:8080/api/v1/bkash/requests/user/${user.name}`
+          `https://blockchain-crowdfunding-4wah.onrender.com/api/v1/bkash/requests/user/${user.name}`
         );
         setRequests(res.data.requests || []);
       } catch (err) {
